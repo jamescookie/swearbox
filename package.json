@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "swear-box",
+  "version": "0.1.0",
+  "description": "Swearing machine",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://git.heroku.com/swearbox.git"
   },
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "swear"
   ],
   "license": "MIT"
 }
