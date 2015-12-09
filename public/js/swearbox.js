@@ -6,7 +6,8 @@ if (typeof exports !== "undefined") {
     exports.swear = function () {
         var verbs = ['fucking', 'wanking', 'leaking'];
         var common = ['lick', 'bash', 'suck', 'slapp', 'spitt', 'munch', 'gobbl', 'juggl'];
-        var adjectives = ['shit', 'arse', 'scrotum', 'tit', 'fart', 'piss', 'cock', 'fuck', 'cunt', 'wank', 'bollock', 'spunk', 'twat', 'minge'];
+        var commonWithVerbs = ['fuck', 'wank'];
+        var adjectives = ['shit', 'arse', 'scrotum', 'tit', 'fart', 'piss', 'cock', 'cunt', 'bollock', 'spunk', 'twat', 'minge'];
         var nouns = ['face', 'stain', 'nose', 'monkey', 'juice', 'candle', 'sack', 'knob', 'worm', 'whale', 'jockey', 'bubble', 'whore'];
         var rand = function (it) {
             return it[Math.floor(Math.random() * it.length)]
@@ -20,8 +21,9 @@ if (typeof exports !== "undefined") {
             }
         };
         var adjective = rand(adjectives);
+        adjectives = _.without(adjectives, adjective);
         var verbContainer = findFrom(verbs, common, 'ing');
         var noun = verbContainer.fromCommon ? rand(nouns) : findFrom(nouns, common, 'er').word;
-        return adjective + "-" + verbContainer.word + " " + rand(_.without(adjectives, adjective)) + " " + noun;
+        return adjective + "-" + verbContainer.word + " " + (verbContainer.fromCommon ? rand(_.union(adjectives, commonWithVerbs)) : rand(adjectives)) + " " + noun;
     };
 })(typeof exports === 'undefined' ? this['swearbox'] = {} : exports, _);
