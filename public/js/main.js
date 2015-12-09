@@ -1,14 +1,19 @@
 var swearboxHandler = function () {
     var $result = $('#result');
     var prev = [];
+    var pushed = false;
 
     var init = function() {
         var phrase = swearbox.swear();
         prev.push(phrase);
+        pushed = true;
         $result.text(phrase);
     };
     var previous = function() {
-        prev.pop();
+        if (pushed) {
+            prev.pop();
+            pushed = false;
+        }
         var phrase = prev.pop();
         if (!phrase) {
             init();
